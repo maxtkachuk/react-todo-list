@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { v4 as uuidv4 } from 'uuid';
 import TodoList from "../TodoList/TodoList";
+import {Row, Col, Button, FormControl} from "react-bootstrap"
+import s from './AddTodo.module.css'
 
 function AddTodo({todo, setTodo}) {
     
@@ -20,10 +22,12 @@ function AddTodo({todo, setTodo}) {
     console.log(todo)
 
     return (
-        <div>
-            <input placeholder = "ENTER THE NOTE:" value={value} onChange={ (e)=>setValue(e.target.value) }/>
-            <button onClick={saveTodo}>SAVE</button>
-        </div>
+        <Row>
+            <Col className={s.addTodoForm}>
+                <FormControl placeholder = "ENTER THE NOTE:" value={value} onChange={ (e)=>setValue(e.target.value) }/>
+                <Button onClick={saveTodo} className={s.btn}>SAVE</Button>
+            </Col>
+        </Row>
     )
 }
 
