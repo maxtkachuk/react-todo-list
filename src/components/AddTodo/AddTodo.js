@@ -9,18 +9,18 @@ function AddTodo({todo, setTodo}) {
     const[value, setValue] = useState('')
 
     function saveTodo(){
-        setTodo(
-            [...todo, {
-                id: uuidv4(),
-                title: value,
-                status: true
-            }]
-        )
-        setValue('')
+        if(value){
+            setTodo(
+                [...todo, {
+                    id: uuidv4(),
+                    title: value,
+                    status: true
+                }]
+            )
+            setValue('')
+        }
     }
-
-    console.log(todo)
-
+    
     return (
         <Row>
             <Col className={s.addTodoForm}>
